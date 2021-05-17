@@ -1,8 +1,17 @@
 const env = require('dotenv');
 const express = require('express');
+const conn = require('./config/conn.mysql')
 
 env.config({
   path: './config/config.env'
+});
+
+conn.connect((err) => {
+  if (err) {
+    throw err;
+  } else {
+    console.log("Database connected");
+  }
 });
 
 const server = express();
