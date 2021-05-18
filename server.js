@@ -33,6 +33,10 @@ server.use(passport.session());
 
 server.use("/auth", authRouter);
 
+server.get("/", (req, res) => {
+  res.status(200).send("Hello Express.");
+});
+
 server.listen(port, () => {
   console.log(`Server started\nRoot Url: http://localhost:${port}`)
 });
